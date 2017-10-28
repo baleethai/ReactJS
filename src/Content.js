@@ -4,26 +4,13 @@ class Content extends Component {
 	constructor() {
 		super()
 		this.state = {
-			data: [],
-			message: "Unlike",
-			type: ""
+			message: "Unlike"
 		}
-		this.changeMessage = this.changeMessage.bind(this)
-		this.insert = this.insert.bind(this)
 	}
 
-	changeMessage() {
+	changeMessage(event) {
 		this.setState({
-			message: "Like"
-		})
-	}
-
-	insert() {
-		var item = 'React'
-		var myArray = this.state.data;
-		myArray.push(item)
-		this.setState({
-			data: myArray
+			message: event.target.value
 		})
 	}
 
@@ -31,9 +18,7 @@ class Content extends Component {
 		return(
 			<div>
 				<h3>{ this.state.message }</h3>
-				<p><button onClick={this.changeMessage}>Change Message</button></p>
-				<h3>{ this.state.data }</h3>
-				<p><button onClick={this.insert}>Insert Data</button></p>
+				<p><input type="text" onChange={this.changeMessage.bind(this)}/></p>
 			</div>
 		)
 	}
