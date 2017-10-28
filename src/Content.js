@@ -4,23 +4,36 @@ class Content extends Component {
 	constructor() {
 		super()
 		this.state = {
-			name: "Unlike",
-			count: 0
+			data: [],
+			message: "Unlike",
+			type: ""
 		}
+		this.changeMessage = this.changeMessage.bind(this)
+		this.insert = this.insert.bind(this)
 	}
+
+	changeMessage() {
+		this.setState({
+			message: "Like"
+		})
+	}
+
+	insert() {
+		var item = 'React'
+		var myArray = this.state.data;
+		myArray.push(item)
+		this.setState({
+			data: myArray
+		})
+	}
+
 	render() {
-		setTimeout( () => {
-			this.setState({
-				name: "Like"
-			})
-		}, 2000)
-		setInterval( () => {
-			this.setState({count: this.state.count+1})
-		}, 1000)
 		return(
 			<div>
-				<h3>{ this.props.title }</h3>
-				<p>Status : {this.state.name} {this.state.count}</p>
+				<h3>{ this.state.message }</h3>
+				<p><button onClick={this.changeMessage}>Change Message</button></p>
+				<h3>{ this.state.data }</h3>
+				<p><button onClick={this.insert}>Insert Data</button></p>
 			</div>
 		)
 	}
