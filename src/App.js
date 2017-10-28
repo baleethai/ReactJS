@@ -7,9 +7,9 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Header />
-				<Content title="This is a Content." />
-				<Footer />
+				<p><a href="/">Home</a></p>
+				<p><a href="/header">Header</a></p>
+				<p><a href="/footer">Footer</a></p>
 			</div>
 		)
 	}
